@@ -1,0 +1,28 @@
+{% extends "base_bootstrap.html" %}
+{% load static %}
+<html>
+{% block head %}
+<head>
+    <title>Sign in</title>
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+</head>
+{% endblock %}
+
+{% block body %}
+  <div class="main">
+    <p class="sign" align="center">Log In</p>
+    {% if form.errors %}
+    <p align="center" >아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+    {% endif %}
+    <form class="form1" method="post" action = "{% url 'login' %}" > {% csrf_token %}
+      <input class="un " type="text" align="center" placeholder="Username" name = 'username'>
+      <input class="pass" type="password" align="center" placeholder="Password" name = 'password'>
+      <input type="submit" value="로그인" class="submit" align="center">
+      <input type="hidden" name="next" value="{% url 'home:homepage' %}" />
+      <p class="forgot" align="center">
+        <p align="center"><a href="#">비밀번호 찾기</a></p>
+      <div align="center"><a href="{% url 'home:signup' %}">회원가입</a></div>
+      </p>
+    </form>
+  </div>
+{% endblock %}

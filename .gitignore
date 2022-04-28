@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+mysite/home/pdf_fie/*.pdf
+pwd.pem
+stock_scraper.py
+**/migrations
+*.pyc
+*.sqlite3
+mysite/mysite/settings.py

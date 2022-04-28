@@ -1,0 +1,50 @@
+{% extends "base_bootstrap.html" %}
+{% block body %}
+
+ <div class = 'container' ALIGN='center'>
+
+ <fieldset>
+  <h2 >Sign up</h2>
+    <br>
+  <div id="coverScreen"  class="LockOn">
+  </div>
+
+  <form method="post" class="well form-horizontal" id="contact_form">
+      <br>
+    {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            <div class="col-md-4 inputGroupContainer">
+            {{ field }}
+               <br>{{ field.help_text|linebreaksbr  }}
+             </div>
+            <br>        <p style="color : red">{{ field.errors.as_text }}</p>
+       </div>
+      {% endfor %}
+      <p><button type="submit" class="btn btn-outline-dark" id = "signup">회원가입</button></p>
+  </form>
+  </fieldset>
+  </div>
+<script>
+var inputEmailValue;
+$(window).on('load', function () {
+console.log("page load 됨");
+$("#coverScreen").hide();
+});
+
+$("#signup").click(function () {
+    console.log("버튼 클릭");
+    inputEmailValue = document.getElementById('id_email').value;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const button = document.getElementById('signup')
+    if (inputEmailValue.match(mailformat)){
+        $("#coverScreen").show();
+        console.log("if 문 들어옴");
+        setTimeout (() => $("#coverScreen").hide(), 5000); // 5초뒤 사라짐 근데 사라진 뒤에 오류가 표시 되는지 아닌지는 모름
+        console.log("5초 지남");
+    }
+});
+</script>
+{% endblock %}
+

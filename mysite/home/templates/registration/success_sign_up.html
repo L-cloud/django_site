@@ -1,0 +1,9 @@
+{% extends "base_bootstrap.html" %}
+{% block body %}
+{% if email %}
+<p><h3>&nbsp;&nbsp;&nbsp;{{ email }} 로 메일이 발송되었습니다. 메일을 확인해 주세요.</h3></p>
+{% else %}
+<p><h3>&nbsp;&nbsp;&nbsp;잘못된 접근 입니다.</h3></p>
+{% endif %}
+
+{% endblock %}

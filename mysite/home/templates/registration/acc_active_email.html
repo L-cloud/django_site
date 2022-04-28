@@ -1,0 +1,5 @@
+{% autoescape off %}
+안녕하세요 {{ user.username }} 님,
+회원가입을 위해서 아래 링크를 클릭해 주세요.
+{{ domain }}{% url 'home:activate' uidb64=uid token=token %}
+{% endautoescape %}
