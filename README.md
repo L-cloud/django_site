@@ -21,3 +21,6 @@
 * nginx
 * uwsgi
 
+### Models Diagram
+
+![](https://github.com/L-cloud/django_site/blob/main/model_diagram_version1.png?raw=true)
